@@ -1,10 +1,12 @@
 package br.com.kenzo.appodontoprev
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 
 class ErroActivity : AppCompatActivity() {
+
     private lateinit var buttonVoltar: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,8 +14,11 @@ class ErroActivity : AppCompatActivity() {
         setContentView(R.layout.activity_erro)
 
         buttonVoltar = findViewById(R.id.buttonVoltar)
+
         buttonVoltar.setOnClickListener {
-            finish()  // Encerra a atividade atual e retorna para a antrior
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish() // Finaliza a tela de erro
         }
     }
 }

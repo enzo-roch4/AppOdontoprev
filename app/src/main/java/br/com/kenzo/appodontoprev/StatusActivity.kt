@@ -1,5 +1,6 @@
 package br.com.kenzo.appodontoprev
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -13,7 +14,9 @@ class StatusActivity : AppCompatActivity() {
 
         buttonVoltar = findViewById(R.id.buttonVoltar)
         buttonVoltar.setOnClickListener {
-            finish()  // Encerra a atividade atual e retorna à anterior
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 }

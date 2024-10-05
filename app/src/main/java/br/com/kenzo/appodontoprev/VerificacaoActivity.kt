@@ -23,9 +23,11 @@ class VerificacaoActivity : AppCompatActivity() {
 
 
 
-        
+
         buttonVoltar.setOnClickListener {
-            finish()  // Encerra a atividade atual e faz o retorno
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
         }
         buttonEnviaForm.setOnClickListener {
             val cpf = editTextCPF.text.toString()

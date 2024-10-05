@@ -10,28 +10,33 @@ import androidx.appcompat.app.AppCompatActivity
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var buttonLogin: Button
-    private lateinit var editTextNome: EditText
     private lateinit var editTextCPF: EditText
+    private lateinit var editTextNome: EditText
     private var destino: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        // Recupera o destino da intent que foi passado pela MainActivity
+        buttonLogin = findViewById(R.id.buttonLogin)
+        editTextCPF = findViewById(R.id.editTextTextCPF)
+        editTextNome = findViewById(R.id.editTextTextNome)
+
         destino = intent.getStringExtra("destino")
 
-        buttonLogin = findViewById(R.id.buttonLogin)
-        editTextNome = findViewById(R.id.editTextTextNome)
-        editTextCPF = findViewById(R.id.editTextTextCPF)
-
+        
         buttonLogin.setOnClickListener {
-
             val nome = editTextNome.text.toString()
             val cpf = editTextCPF.text.toString()
 
-            if (validaLogin(nome, cpf)) {
-                // Se a validação foi bem-sucedida, redireciona para a atividade que selecionou inicialment
+            // Validação de nome e cpf
+            if (!validaLogin(nome, cpf)) {
+                // Se a validação falhar, vai para a tela de erro
+                val intent = Intent(this, ErroActivity::class.java)
+                startActivity(intent)
+                finish() // Finaliza a tela atual
+            } else {
+                // caso login seja valido aqui ele direciona para a atela selecionada
                 when (destino) {
                     "VerificacaoActivity" -> {
                         val intent = Intent(this, VerificacaoActivity::class.java)
@@ -45,15 +50,16 @@ class LoginActivity : AppCompatActivity() {
                         Toast.makeText(this, "Destino inválido!", Toast.LENGTH_SHORT).show()
                     }
                 }
-            } else {
-                Toast.makeText(this, "Login inválido!", Toast.LENGTH_SHORT).show()
+                finish()
             }
         }
-
     }
 
-    // Função de validação de login
+    // Função de validação que verifica nome e CPF
     private fun validaLogin(nome: String, cpf: String): Boolean {
+        // Exemplo simples de validação: nome não pode estar vazio e CPF deve ter 11 caracteres
         return nome.isNotEmpty() && cpf.length == 11
     }
 }
+
+
