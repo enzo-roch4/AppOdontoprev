@@ -32,7 +32,6 @@ class VerificacaoActivity : AppCompatActivity() {
         buttonEnviaForm.setOnClickListener {
             val cpf = editTextCPF.text.toString()
 
-            // Validar CPF
             if (isValidCPF(cpf)) {
                 // CPF é válido, mostrar uma mensagem de sucesso
                 Toast.makeText(this, "CPF válido! Formulário enviado.", Toast.LENGTH_SHORT).show()

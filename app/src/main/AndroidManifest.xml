@@ -15,7 +15,7 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".VerificacaoActivity" />
         <activity android:name=".StatusActivity" />
-        <activity android:name=".ErrorActivity" />
+        <activity android:name=".ErroActivity" />
 
         <activity
             android:name=".MainActivity"

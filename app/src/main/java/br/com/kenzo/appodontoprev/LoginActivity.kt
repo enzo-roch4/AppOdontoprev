@@ -24,7 +24,7 @@ class LoginActivity : AppCompatActivity() {
 
         destino = intent.getStringExtra("destino")
 
-        
+
         buttonLogin.setOnClickListener {
             val nome = editTextNome.text.toString()
             val cpf = editTextCPF.text.toString()
