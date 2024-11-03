@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "666716967676",
+    "firebase_url": "https://appodontoprev-656bb-default-rtdb.firebaseio.com",
+    "project_id": "appodontoprev-656bb",
+    "storage_bucket": "appodontoprev-656bb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:666716967676:android:77019a2abc91a22fa43d79",
+        "android_client_info": {
+          "package_name": "br.com.kenzo.appodontoprev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFkKdGV75Vy0jx3_hLumSItEoZ5gAScQ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

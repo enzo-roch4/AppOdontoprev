@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import br.com.kenzo.appodontoprev.api.UserController
 
 class LoginActivity : AppCompatActivity() {
 
@@ -28,6 +29,17 @@ class LoginActivity : AppCompatActivity() {
         buttonLogin.setOnClickListener {
             val nome = editTextNome.text.toString()
             val cpf = editTextCPF.text.toString()
+            val user = User(name = nome, cpf = cpf)
+            val userController = UserController()
+
+            userController.createUser(user) { response ->
+                if (response.startsWith("Error")) {
+                    // Lidar com o erro
+                } else {
+                    // Usuário criado com sucesso
+                }
+            }
+
 
             // Validação de nome e cpf
             if (!validaLogin(nome, cpf)) {
@@ -52,6 +64,7 @@ class LoginActivity : AppCompatActivity() {
                 }
                 finish()
             }
+
         }
     }
 

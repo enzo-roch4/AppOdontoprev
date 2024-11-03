@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import android.widget.EditText
+import com.google.firebase.database.FirebaseDatabase
 
 
 class VerificacaoActivity : AppCompatActivity() {
