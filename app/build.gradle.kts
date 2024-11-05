@@ -48,6 +48,9 @@ dependencies {
     implementation("com.google.firebase:firebase-database-ktx:20.4.0")
     implementation("com.google.firebase:firebase-auth-ktx:22.0.0")
     implementation(libs.firebase.firestore.ktx)
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.google.code.gson:gson:2.8.8")
 
 
     testImplementation(libs.junit)

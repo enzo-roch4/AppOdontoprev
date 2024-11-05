@@ -40,36 +40,9 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-    private fun writeNewUser(userId: String, name: String, cpf: String) {
-        val user = User(name, cpf)
-        val database = FirebaseDatabase.getInstance().reference
-
-        database.child("users").child(userId).setValue(user)
-            .addOnSuccessListener {
-                Log.d("Firebase", "Dados salvos com sucesso.")
-            }
-            .addOnFailureListener { exception ->
-                Log.e("Firebase", "Erro ao salvar os dados.", exception)
-            }
-    }
 
 
-    private fun readUser(userId: String) {
-        val database = FirebaseDatabase.getInstance().reference
 
-        database.child("users").child(userId).get()
-            .addOnSuccessListener { snapshot ->
-                if (snapshot.exists()) {
-                    val user = snapshot.getValue(User::class.java)
-                    Log.d("Firebase", "Nome: ${user?.name}, CPF: ${user?.cpf}")
-                } else {
-                    Log.d("Firebase", "Usuário não encontrado.")
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.e("Firebase", "Erro ao ler os dados.", exception)
-            }
-    }
 }
 
 
