@@ -35,9 +35,6 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true)
-
-
 
     }
 
